@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <RootNamespace>CorpFleet</RootNamespace>
+    <AssemblyName>CorpFleet</AssemblyName>
+    <!-- Позволяет собирать проект и на не-Windows машинах (запуск — только Windows) -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Готовая БД и SQL-скрипт копируются рядом с .exe -->
+    <None Update="corp_fleet.db" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Data\corp_fleet_seed.sql" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
